@@ -15,8 +15,7 @@ public class Program {
 		
 		String path = "C:\\temp\\names.txt";
 		
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(path));
+		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
 			String name = br.readLine();
 			while (name != null) {
@@ -29,7 +28,7 @@ public class Program {
 				System.out.println(s);
 			}
 			
-			br.close();
+			
 		}catch(IOException e) {
 			System.out.println("Error "+ e.getMessage());
 		}
